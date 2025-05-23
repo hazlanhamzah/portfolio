@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/ico.png" type="image/x-icon">
+  <title>Education | Hazlansyah's Portfolio</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Enhanced transitions and animations */
+    * {
+      transition: all 0.3s ease;
+    }
+    
+    /* Navigation enhancements */
+    nav a {
+      position: relative;
+      padding: 5px 0;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #4CA1AF;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* Timeline enhancements */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: linear-gradient(to bottom, #4CA1AF, #2C3E50);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      border-radius: 10px;
+    }
+    
+    .edu-content {
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(76,161,175,0.1) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .edu-content:hover::before {
+      opacity: 1;
+    }
+    
+    /* Education stage animations */
+    .education-stage {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .education-stage.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* School logo enhancements */
+    .edu-image {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+      z-index: 2;
+    }
+    .edu-image:hover {
+      transform: translateY(-50%) scale(1.1) rotate(5deg) !important;
+      box-shadow: 0 8px 25px rgba(76, 161, 175, 0.6) !important;
+    }
+    
+    /* Timeline dot enhancements */
+    .timeline-dot {
+      transition: all 0.3s;
+      z-index: 3;
+    }
+    .education-stage:hover .timeline-dot {
+      transform: translateY(-50%) scale(1.3);
+      box-shadow: 0 0 0 3px rgba(76, 161, 175, 0.3);
+    }
+    
+    /* Social media icons */
+    .social-links a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(76, 161, 175, 0.2);
+      transition: all 0.3s;
+    }
+    .social-links a:hover {
+      transform: translateY(-3px) scale(1.1);
+      background: rgba(76, 161, 175, 0.4);
+    }
+    .social-links i {
+      font-size: 1.4em;
+    }
+    
+    /* Music player enhancements */
+    #music-player {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    #music-player:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+    #music-control {
+      transition: all 0.2s !important;
+    }
+    #music-control:hover {
+      transform: rotate(15deg) scale(1.1) !important;
+    }
+    
+    /* Back to top button */
+    #back-to-top {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: rgba(76, 161, 175, 0.8);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    #back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    #back-to-top:hover {
+      background: rgba(76, 161, 175, 1);
+      transform: translateY(-3px);
+    }
+    
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body id="top" style="margin: 0; padding: 0; background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%); color: white; font-family: 'Segoe UI', sans-serif; text-align: center; min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="background: url('images/port.png') center/cover no-repeat; color: white; padding: 60px 20px; text-align: center; position: relative; background-blend-mode: overlay; background-color: rgba(44, 62, 80, 0.7); margin-bottom: 40px;">
+    <div style="background: rgba(0,0,0,0.4); padding: 20px; border-radius: 5px; max-width: 800px; margin: 0 auto;">
+      <h1 style="margin: 0; font-size: 3em;"><i class="fas fa-graduation-cap" style="margin-right: 15px;"></i>Education</h1>
+      <p style="margin: 15px 0 0; font-size: 1.3em; font-weight: 300;"><i class="fas fa-user" style="margin-right: 10px;"></i>Hazlansyah bin Hamzah</p>
+    </div>
+  </header>
+
+  <nav style="background-color: rgba(0, 0, 0, 0.2); padding: 15px 0; margin-bottom: 30px;">
+    <a href="index.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-home" style="margin-right: 8px;"></i><strong>Profile</strong></a>
+    <a href="education.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i><strong>Education</strong></a>
+    <a href="interest.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-heart" style="margin-right: 8px;"></i><strong>Hobbies & Interest</strong></a>
+    <a href="skills.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-laptop-code" style="margin-right: 8px;"></i><strong>Skills</strong></a>
+    <a href="experience.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-briefcase" style="margin-right: 8px;"></i><strong>Experience</strong></a>
+    <a href="aboutme.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-address-card" style="margin-right: 8px;"></i><strong>About Me</strong></a>
+  </nav>
+
+  <div class="content" style="max-width: 1100px; margin: 0 auto; padding: 0 20px; line-height: 1.6; flex: 1;">
+    <div class="timeline" style="position: relative; margin: 50px auto; padding: 0 100px;">
+      <div style="content: ''; position: absolute; width: 4px; background: #4CA1AF; top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 10px;"></div>
+      
+      <div class="education-stage" style="position: relative; width: 50%; box-sizing: border-box; margin-bottom: 40px; padding: 0; left: 0; text-align: right;">
+        <div class="edu-content" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); width: 80%; display: inline-block; margin-bottom: 30px;">
+          <div class="edu-year" style="color: #a8e6ff; font-weight: bold; font-size: 1.2em; margin-bottom: 5px;"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i>2024 - Present</div>
+          <h3 class="edu-title" style="font-size: 1.4em; margin: 10px 0;"><i class="fas fa-university" style="margin-right: 10px; color: #a8e6ff;"></i>Bachelor of Information Science (Honours) Information Systems Management</h3>
+          <div class="edu-institution" style="font-style: italic; margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #a8e6ff;"></i>Universiti Teknologi MARA (UiTM)</div>
+          <div style="margin-top: 15px; text-align: left;">
+            <div style="display: flex; align-items: flex-start; margin-bottom: 8px;">
+            </div>
+            <div style="display: flex; align-items: flex-start;">
+            </div>
+          </div>
+        </div>
+        <img src="images/uitm.jpg" alt="UiTM Logo" class="edu-image" style="position: absolute; width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #4CA1AF; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); top: 50%; transform: translateY(-50%); right: -120px;">
+        <div class="timeline-dot" style="content: ''; position: absolute; width: 20px; height: 20px; background: #2C3E50; border: 4px solid #4CA1AF; border-radius: 50%; top: 50%; transform: translateY(-50%); right: -12px;"></div>
+      </div>
+  
+      <div class="education-stage" style="position: relative; width: 50%; box-sizing: border-box; margin-bottom: 40px; padding: 0; left: 50%; text-align: left;">
+        <div class="edu-content" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); width: 80%; display: inline-block; margin-bottom: 30px;">
+          <div class="edu-year" style="color: #a8e6ff; font-weight: bold; font-size: 1.2em; margin-bottom: 5px;"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i>2016 - 2018</div>
+          <h3 class="edu-title" style="font-size: 1.4em; margin: 10px 0;"><i class="fas fa-graduation-cap" style="margin-right: 10px; color: #a8e6ff;"></i>Diploma in Information Technology (Network)</h3>
+          <div class="edu-institution" style="font-style: italic; margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #a8e6ff;"></i>Politeknik Muadzam Shah</div>
+          <div style="margin-top: 15px; text-align: left;">
+            <div style="display: flex; align-items: flex-start; margin-bottom: 8px;">
+            </div>
+            <div style="display: flex; align-items: flex-start;">
+            </div>
+          </div>
+        </div>
+        <img src="images/poli.png" alt="Poli Logo" class="edu-image" style="position: absolute; width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #4CA1AF; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); top: 50%; transform: translateY(-50%); left: -120px;">
+        <div class="timeline-dot" style="content: ''; position: absolute; width: 20px; height: 20px; background: #2C3E50; border: 4px solid #4CA1AF; border-radius: 50%; top: 50%; transform: translateY(-50%); left: -12px;"></div>
+      </div>
+      
+      <div class="education-stage" style="position: relative; width: 50%; box-sizing: border-box; margin-bottom: 40px; padding: 0; left: 0; text-align: right;">
+        <div class="edu-content" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); width: 80%; display: inline-block; margin-bottom: 30px;">
+          <div class="edu-year" style="color: #a8e6ff; font-weight: bold; font-size: 1.2em; margin-bottom: 5px;"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i>2013 - 2014</div>
+          <h3 class="edu-title" style="font-size: 1.4em; margin: 10px 0;"><i class="fas fa-school" style="margin-right: 10px; color: #a8e6ff;"></i>Sijil Penilaian Malaysia (SPM)</h3>
+          <div class="edu-institution" style="font-style: italic; margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #a8e6ff;"></i>SMK Kuhara Tawau</div>
+          <div style="margin-top: 15px; text-align: left;">
+            <div style="display: flex; align-items: flex-start; margin-bottom: 8px;">
+            </div>
+          </div>
+        </div>
+        <img src="images/smk.png" alt="SMK Logo" class="edu-image" style="position: absolute; width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #4CA1AF; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); top: 50%; transform: translateY(-50%); right: -120px;">
+        <div class="timeline-dot" style="content: ''; position: absolute; width: 20px; height: 20px; background: #2C3E50; border: 4px solid #4CA1AF; border-radius: 50%; top: 50%; transform: translateY(-50%); right: -12px;"></div>
+      </div>
+      
+      <div class="education-stage" style="position: relative; width: 50%; box-sizing: border-box; margin-bottom: 40px; padding: 0; left: 50%; text-align: left;">
+        <div class="edu-content" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); width: 80%; display: inline-block; margin-bottom: 30px;">
+          <div class="edu-year" style="color: #a8e6ff; font-weight: bold; font-size: 1.2em; margin-bottom: 5px;"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i>2010 - 2012</div>
+          <h3 class="edu-title" style="font-size: 1.4em; margin: 10px 0;"><i class="fas fa-school" style="margin-right: 10px; color: #a8e6ff;"></i>Penilaian Menengah Rendah (PMR)</h3>
+          <div class="edu-institution" style="font-style: italic; margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #a8e6ff;"></i>SMK Kuhara Tawau</div>
+          <div style="margin-top: 15px; text-align: left;">
+            <div style="display: flex; align-items: flex-start; margin-bottom: 8px;">
+            </div>
+            <div style="display: flex; align-items: flex-start;">
+            </div>
+          </div>
+        </div>
+        <img src="images/smk.png" alt="PMR Logo" class="edu-image" style="position: absolute; width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #4CA1AF; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); top: 50%; transform: translateY(-50%); left: -120px;">
+        <div class="timeline-dot" style="content: ''; position: absolute; width: 20px; height: 20px; background: #2C3E50; border: 4px solid #4CA1AF; border-radius: 50%; top: 50%; transform: translateY(-50%); left: -12px;"></div>
+      </div>
+      
+      <div class="education-stage" style="position: relative; width: 50%; box-sizing: border-box; margin-bottom: 40px; padding: 0; left: 0; text-align: right;">
+        <div class="edu-content" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); width: 80%; display: inline-block; margin-bottom: 30px;">
+          <div class="edu-year" style="color: #a8e6ff; font-weight: bold; font-size: 1.2em; margin-bottom: 5px;"><i class="far fa-calendar-alt" style="margin-right: 8px;"></i>2004 - 2009</div>
+          <h3 class="edu-title" style="font-size: 1.4em; margin: 10px 0;"><i class="fas fa-school" style="margin-right: 10px; color: #a8e6ff;"></i>Ujian Penilaian Sekolah Rendah (UPSR)</h3>
+          <div class="edu-institution" style="font-style: italic; margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #a8e6ff;"></i>SK Tanjung Batu Darat</div>
+          <div style="margin-top: 15px; text-align: left;">
+            <div style="display: flex; align-items: flex-start; margin-bottom: 8px;">
+            </div>
+            <div style="display: flex; align-items: flex-start;">
+            </div>
+          </div>
+        </div>
+        <img src="images/sk.jpg" alt="SK Logo" class="edu-image" style="position: absolute; width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #4CA1AF; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); top: 50%; transform: translateY(-50%); right: -120px;">
+        <div class="timeline-dot" style="content: ''; position: absolute; width: 20px; height: 20px; background: #2C3E50; border: 4px solid #4CA1AF; border-radius: 50%; top: 50%; transform: translateY(-50%); right: -12px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background: rgba(0, 0, 0, 0.25); padding: 25px 0; margin-top: 50px; backdrop-filter: blur(5px); border-top: 1px solid rgba(76, 161, 175, 0.3);">
+    <div class="social-links" style="margin-bottom: 15px;">
+      <a href="https://www.instagram.com/h._.syah/" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:ariff.1010@gmail.com" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="#" style="margin: 0 10px; color: white; text-decoration: none;">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="#" style="margin: 0 10px; color: white; text-decoration: none;">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    
+    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="far fa-copyright" style="margin-right: 5px;"></i><strong>E-Portfolio ©2025 Copyright.</strong> <em>All Rights Reserved</em></p>
+    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="fab fa-html5" style="margin-right: 5px;"></i><strong>Powered by HTML</strong> | <i class="fab fa-chrome" style="margin-right: 5px;"></i><em>Best viewed in Google Chrome</em></p>
+    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="fas fa-graduation-cap" style="margin-right: 5px;"></i><em>For educational purposes</em> <strong>(IMS458)</strong></p>
+    
+    <p class="copyright" style="font-size: 0.85em; color: rgba(255,255,255,0.6); margin-top: 15px;"><i class="fas fa-user" style="margin-right: 5px;"></i><strong>Hazlansyah Bin Hamzah</strong></p>
+  </footer>
+
+  <div id="music-player" style="position: fixed; bottom: 20px; right: 20px; background: rgba(0, 0, 0, 0.7); padding: 15px; border-radius: 50px; display: flex; align-items: center; gap: 10px; z-index: 1000; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1);">
+    <button id="music-control" style="background: #4CA1AF; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px;"><i class="fas fa-music"></i></button>
+    <span id="music-info" style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;"></span>
+    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.7" style="width: 80px; cursor: pointer;">
+    <audio id="bg-music" loop>
+      <source src="includes/music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <a href="#top" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('bg-music');
+      const playBtn = document.getElementById('music-control');
+      const volumeControl = document.getElementById('volume-control');
+      const musicInfo = document.getElementById('music-info');
+      const backToTop = document.getElementById('back-to-top');
+      
+      audio.volume = 0.7;
+      const savedPlayState = localStorage.getItem('musicPlaying') === 'true';
+      const savedVolume = localStorage.getItem('musicVolume');
+      const savedTime = localStorage.getItem('musicTime');
+    
+      if (savedVolume) {
+        audio.volume = parseFloat(savedVolume);
+        volumeControl.value = savedVolume;
+      }
+      
+      if (savedTime) {
+        audio.currentTime = parseFloat(savedTime);
+      }
+      
+      function attemptAutoPlay() {
+        if (savedPlayState) {
+          const playPromise = audio.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            })
+            .catch(error => {
+              playBtn.innerHTML = '<i class="fas fa-play"></i>';
+              musicInfo.title = "Click play to start music (browser restriction)";
+            });
+          }
+        }
+      }
+      
+      attemptAutoPlay();
+      
+      let interactionOccurred = false;
+      const handleFirstInteraction = () => {
+        if (!interactionOccurred) {
+          interactionOccurred = true;
+          if (savedPlayState && audio.paused) {
+            audio.play().then(() => {
+              playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            });
+          }
+          document.removeEventListener('click', handleFirstInteraction);
+          document.removeEventListener('keydown', handleFirstInteraction);
+          document.removeEventListener('touchstart', handleFirstInteraction);
+        }
+      };
+      
+      document.addEventListener('click', handleFirstInteraction);
+      document.addEventListener('keydown', handleFirstInteraction);
+      document.addEventListener('touchstart', handleFirstInteraction);
+      
+      playBtn.addEventListener('click', function() {
+        if (audio.paused) {
+          audio.play().then(() => {
+            this.innerHTML = '<i class="fas fa-pause"></i>';
+            localStorage.setItem('musicPlaying', 'true');
+          });
+        } else {
+          audio.pause();
+          this.innerHTML = '<i class="fas fa-play"></i>';
+          localStorage.setItem('musicPlaying', 'false');
+        }
+      });
+      
+      volumeControl.addEventListener('input', function() {
+        audio.volume = this.value;
+        localStorage.setItem('musicVolume', this.value);
+      });
+      
+      setInterval(() => {
+        if (!audio.paused) {
+          localStorage.setItem('musicTime', audio.currentTime);
+        }
+      }, 1000);
+      
+      window.addEventListener('beforeunload', function() {
+        localStorage.setItem('musicTime', audio.currentTime);
+      });
+      
+      // Back to top button
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+      
+      // Animate timeline items on scroll
+      const educationStages = document.querySelectorAll('.education-stage');
+      
+      function checkVisibility() {
+        educationStages.forEach(stage => {
+          const stageTop = stage.getBoundingClientRect().top;
+          const stageBottom = stage.getBoundingClientRect().bottom;
+          
+          if (stageTop < window.innerHeight - 100 && stageBottom > 0) {
+            stage.classList.add('visible');
+          }
+        });
+      }
+      
+      // Initial check
+      checkVisibility();
+      
+      // Check on scroll
+      window.addEventListener('scroll', checkVisibility);
+      
+      // Smooth scroll for all links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Experience | Hazlansyah's Portfolio</title>
+  <link rel="icon" href="images/ico.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      transition: all 0.3s ease;
+    }
+    
+    nav a {
+      position: relative;
+      padding: 5px 0;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #4CA1AF;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: #4CA1AF;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      border-radius: 10px;
+    }
+    
+    .experience-stage::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #2C3E50;
+      border: 4px solid #4CA1AF;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .experience-stage:nth-child(odd)::after {
+      right: -12px;
+    }
+    
+    .experience-stage:nth-child(even)::after {
+      left: -12px;
+    }
+    
+    .exp-content:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
+    }
+    
+    .tech-tag:hover {
+      background: rgba(76, 161, 175, 0.4) !important;
+    }
+    
+    .social-links a {
+      position: relative;
+    }
+    .social-links a::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(76, 161, 175, 0.2);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      z-index: -1;
+      transition: transform 0.3s;
+    }
+    .social-links a:hover::after {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    
+    #music-player {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    #music-player:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+    #music-control {
+      transition: all 0.2s !important;
+    }
+    #music-control:hover {
+      transform: rotate(15deg) scale(1.1) !important;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(76, 161, 175, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(76, 161, 175, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(76, 161, 175, 0); }
+    }
+    .pulse-effect {
+      animation: pulse 2s infinite;
+    }
+    
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 40px;
+      }
+      
+      .experience-stage {
+        width: 100% !important;
+        padding-left: 80px !important;
+        padding-right: 20px !important;
+        text-align: left !important;
+      }
+      
+      .experience-stage:nth-child(even) {
+        left: 0 !important;
+      }
+      
+      .experience-stage::after {
+        left: 28px !important;
+        top: 60px !important;
+      }
+
+      #music-player {
+        bottom: 10px !important;
+        right: 10px !important;
+        padding: 10px !important;
+        gap: 8px !important;
+      }
+      
+      #music-info {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%); color: white; font-family: 'Segoe UI', sans-serif; text-align: center; min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="background: url('images/port.png') center/cover no-repeat; color: white; padding: 60px 20px; text-align: center; position: relative; background-blend-mode: overlay; background-color: rgba(44, 62, 80, 0.7); margin-bottom: 40px;">
+    <div style="background: rgba(0,0,0,0.4); padding: 20px; border-radius: 5px; max-width: 800px; margin: 0 auto;">
+      <h1 style="margin: 0; font-size: 3em;"><strong><i class="fas fa-briefcase" style="margin-right: 15px;"></i>IT EXPERIENCE</strong></h1>
+      <p style="margin: 15px 0 0; font-size: 1.3em; font-weight: 300;"><i class="fas fa-user-tie" style="margin-right: 10px;"></i><em>Hazlansyah bin Hamzah</em></p>
+    </div>
+  </header>
+
+  <nav style="background-color: rgba(0, 0, 0, 0.2); padding: 15px 0; margin-bottom: 30px;">
+    <a href="index.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-home" style="margin-right: 8px;"></i><strong>Profile</strong></a>
+    <a href="education.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i><strong>Education</strong></a>
+    <a href="interest.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-heart" style="margin-right: 8px;"></i><strong>Hobbies & Interest</strong></a>
+    <a href="skills.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-laptop-code" style="margin-right: 8px;"></i><strong>Skills</strong></a>
+    <a href="experience.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-briefcase" style="margin-right: 8px;"></i><strong>Experience</strong></a>
+    <a href="aboutme.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-address-card" style="margin-right: 8px;"></i><strong>About Me</strong></a>
+  </nav>
+
+  <div class="content" style="max-width: 1000px; margin: 0 auto; padding: 0 20px; line-height: 1.6; flex: 1;">
+    <div class="timeline" style="position: relative; margin: 50px auto; padding: 0 50px;">
+      <div class="experience-stage" style="padding: 20px 0; position: relative; width: 50%; box-sizing: border-box; margin-bottom: 40px; left: 0; text-align: right; padding-right: 80px;">
+        <div class="exp-content" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s; margin-bottom: 30px;">
+          <div class="exp-period" style="color: #a8e6ff; font-weight: bold; font-size: 1.2em; margin-bottom: 5px;">2023 – Current</div>
+          <h3 class="exp-title" style="font-size: 1.5em; margin: 10px 0;">Application Support Engineer</h3>
+          <div class="exp-details" style="text-align: left; margin-top: 15px;">
+            <ul style="padding-left: 20px;">
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Work with team members to establish performance objectives and correct performance deficiencies for better quality in work</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Continuously monitor the performance of internal systems to ensure they operate efficiently</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Analyze system logs and metrics to identify bottlenecks or issues</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Implement performance tuning and optimization strategies to enhance system responsiveness</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Provide technical support to staff using internal systems, addressing queries and issues</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Gather user feedback to identify areas for improvement and propose enhancements</li>
+            </ul>
+          </div>
+          <div class="tech-used" style="margin-top: 15px; font-size: 0.9em;">
+            <span class="tech-tag" style="display: inline-block; background: rgba(76, 161, 175, 0.2); padding: 3px 10px; border-radius: 20px; margin: 3px; font-size: 0.85em; transition: background 0.3s;">System Monitoring</span>
+            <span class="tech-tag" style="display: inline-block; background: rgba(76, 161, 175, 0.2); padding: 3px 10px; border-radius: 20px; margin: 3px; font-size: 0.85em; transition: background 0.3s;">Performance Optimization</span>
+            <span class="tech-tag" style="display: inline-block; background: rgba(76, 161, 175, 0.2); padding: 3px 10px; border-radius: 20px; margin: 3px; font-size: 0.85em; transition: background 0.3s;">Technical Support</span>
+            <span class="tech-tag" style="display: inline-block; background: rgba(76, 161, 175, 0.2); padding: 3px 10px; border-radius: 20px; margin: 3px; font-size: 0.85em; transition: background 0.3s;">Troubleshooting</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="experience-stage" style="padding: 20px 0; position: relative; width: 50%; box-sizing: border-box; margin-bottom: 40px; left: 50%; text-align: left; padding-left: 80px;">
+        <div class="exp-content" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s; margin-bottom: 30px;">
+          <div class="exp-period" style="color: #a8e6ff; font-weight: bold; font-size: 1.2em; margin-bottom: 5px;">2021 – 2023</div>
+          <h3 class="exp-title" style="font-size: 1.5em; margin: 10px 0;">Assistant Officer of Information Technology</h3>
+          <div class="exp-company" style="font-style: italic; margin-bottom: 15px; color: #aaa;"><i class="fas fa-building" style="margin-right: 8px;"></i>Kementerian Alam Sekitar dan Air</div>
+          <div class="exp-details" style="text-align: left; margin-top: 15px;">
+            <ul style="padding-left: 20px;">
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Developed a new web system for booking meeting room</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Developed a new web system for booking car</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Developed a new web system for IT department</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Developed a web system for Jabatan Biokeselamatan Malaysia</li>
+            </ul>
+          </div>
+          <div class="tech-used" style="margin-top: 15px; font-size: 0.9em;">
+            <span class="tech-tag" style="display: inline-block; background: rgba(76, 161, 175, 0.2); padding: 3px 10px; border-radius: 20px; margin: 3px; font-size: 0.85em; transition: background 0.3s;">Web Development</span>
+            <span class="tech-tag" style="display: inline-block; background: rgba(76, 161, 175, 0.2); padding: 3px 10px; border-radius: 20px; margin: 3px; font-size: 0.85em; transition: background 0.3s;">System Design</span>
+            <span class="tech-tag" style="display: inline-block; background: rgba(76, 161, 175, 0.2); padding: 3px 10px; border-radius: 20px; margin: 3px; font-size: 0.85em; transition: background 0.3s;">Database Management</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="experience-stage" style="padding: 20px 0; position: relative; width: 50%; box-sizing: border-box; margin-bottom: 40px; left: 0; text-align: right; padding-right: 80px;">
+        <div class="exp-content" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s; margin-bottom: 30px;">
+          <div class="exp-period" style="color: #a8e6ff; font-weight: bold; font-size: 1.2em; margin-bottom: 5px;">2019 – 2020</div>
+          <h3 class="exp-title" style="font-size: 1.5em; margin: 10px 0;">Assistant Officer of Information Technology</h3>
+          <div class="exp-company" style="font-style: italic; margin-bottom: 15px; color: #aaa;"><i class="fas fa-building" style="margin-right: 8px;"></i>Jabatan Perdana Menteri</div>
+          <div class="exp-details" style="text-align: left; margin-top: 15px;">
+            <ul style="padding-left: 20px;">
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Added a new BDR (WFH) module to Sistem Integrasi</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Setup hardware and software in optimal configuration to meet network performance requirements</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-caret-right" style="color: #4CA1AF; margin-right: 8px;"></i>Updated regularly the official website with new information</li>
+            </ul>
+          </div>
+          <div class="tech-used" style="margin-top: 15px; font-size: 0.9em;">
+            <span class="tech-tag" style="display: inline-block; background: rgba(76, 161, 175, 0.2); padding: 3px 10px; border-radius: 20px; margin: 3px; font-size: 0.85em; transition: background 0.3s;">System Integration</span>
+            <span class="tech-tag" style="display: inline-block; background: rgba(76, 161, 175, 0.2); padding: 3px 10px; border-radius: 20px; margin: 3px; font-size: 0.85em; transition: background 0.3s;">Network Configuration</span>
+            <span class="tech-tag" style="display: inline-block; background: rgba(76, 161, 175, 0.2); padding: 3px 10px; border-radius: 20px; margin: 3px; font-size: 0.85em; transition: background 0.3s;">Content Management</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background: rgba(0, 0, 0, 0.25); padding: 25px 0; margin-top: 50px; backdrop-filter: blur(5px); border-top: 1px solid rgba(76, 161, 175, 0.3);">
+    <div class="social-links" style="margin-bottom: 15px;">
+      <a href="https://www.instagram.com/h._.syah/" target="_blank" style="margin: 0 10px; display: inline-block;">
+        <i class="fab fa-instagram fa-2x" style="color: white;"></i>
+      </a>
+      <a href="mailto:ariff.1010@gmail.com" target="_blank" style="margin: 0 10px; display: inline-block;">
+        <i class="fas fa-envelope fa-2x" style="color: white;"></i>
+      </a>
+      <a href="#" style="margin: 0 10px; display: inline-block;">
+        <i class="fab fa-linkedin fa-2x" style="color: white;"></i>
+      </a>
+      <a href="#" style="margin: 0 10px; display: inline-block;">
+        <i class="fab fa-github fa-2x" style="color: white;"></i>
+      </a>
+    </div>
+    
+    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="far fa-copyright" style="margin-right: 5px;"></i><strong>E-Portfolio ©2025 Copyright.</strong> <em>All Rights Reserved</em></p>
+    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="fab fa-html5" style="margin-right: 5px;"></i><strong>Powered by HTML</strong> | <i class="fab fa-chrome" style="margin-right: 5px;"></i><em>Best viewed in Google Chrome</em></p>
+    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="fas fa-graduation-cap" style="margin-right: 5px;"></i><em>For educational purposes</em> <strong>(IMS458)</strong></p>
+    
+    <p class="copyright" style="font-size: 0.85em; color: rgba(255,255,255,0.6); margin-top: 15px;"><i class="fas fa-user" style="margin-right: 5px;"></i><strong>Hazlansyah Bin Hamzah</strong></p>
+  </footer>
+
+  <div id="music-player" class="pulse-effect" style="position: fixed; bottom: 20px; right: 20px; background: rgba(0, 0, 0, 0.7); padding: 15px; border-radius: 50px; display: flex; align-items: center; gap: 10px; z-index: 1000; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1);">
+    <button id="music-control" style="background: #4CA1AF; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px;"><i class="fas fa-music"></i></button>
+    <span id="music-info" style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;"></span>
+    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.7" style="width: 80px; cursor: pointer;">
+    <audio id="bg-music" loop>
+      <source src="includes/music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <a href="#" id="back-to-top" style="position: fixed; bottom: 80px; right: 20px; background: rgba(76, 161, 175, 0.8); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; opacity: 0; visibility: hidden; z-index: 999; transition: all 0.3s;">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('bg-music');
+      const playBtn = document.getElementById('music-control');
+      const volumeControl = document.getElementById('volume-control');
+      const musicInfo = document.getElementById('music-info');
+      const backToTop = document.getElementById('back-to-top');
+      
+      audio.volume = 0.7;
+      const savedPlayState = localStorage.getItem('musicPlaying') === 'true';
+      const savedVolume = localStorage.getItem('musicVolume');
+      const savedTime = localStorage.getItem('musicTime');
+    
+      if (savedVolume) {
+        audio.volume = parseFloat(savedVolume);
+        volumeControl.value = savedVolume;
+      }
+      
+      if (savedTime) {
+        audio.currentTime = parseFloat(savedTime);
+      }
+      
+      function attemptAutoPlay() {
+        if (savedPlayState) {
+          const playPromise = audio.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            })
+            .catch(error => {
+              playBtn.innerHTML = '<i class="fas fa-play"></i>';
+              musicInfo.title = "Click play to start music (browser restriction)";
+            });
+          }
+        }
+      }
+      
+      attemptAutoPlay();
+      
+      let interactionOccurred = false;
+      const handleFirstInteraction = () => {
+        if (!interactionOccurred) {
+          interactionOccurred = true;
+          if (savedPlayState && audio.paused) {
+            audio.play().then(() => {
+              playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            });
+          }
+          document.removeEventListener('click', handleFirstInteraction);
+          document.removeEventListener('keydown', handleFirstInteraction);
+          document.removeEventListener('touchstart', handleFirstInteraction);
+        }
+      };
+      
+      document.addEventListener('click', handleFirstInteraction);
+      document.addEventListener('keydown', handleFirstInteraction);
+      document.addEventListener('touchstart', handleFirstInteraction);
+      
+      playBtn.addEventListener('click', function() {
+        if (audio.paused) {
+          audio.play().then(() => {
+            this.innerHTML = '<i class="fas fa-pause"></i>';
+            localStorage.setItem('musicPlaying', 'true');
+          });
+        } else {
+          audio.pause();
+          this.innerHTML = '<i class="fas fa-play"></i>';
+          localStorage.setItem('musicPlaying', 'false');
+        }
+      });
+      
+      volumeControl.addEventListener('input', function() {
+        audio.volume = this.value;
+        localStorage.setItem('musicVolume', this.value);
+      });
+      
+      setInterval(() => {
+        if (!audio.paused) {
+          localStorage.setItem('musicTime', audio.currentTime);
+        }
+      }, 1000);
+      
+      window.addEventListener('beforeunload', function() {
+        localStorage.setItem('musicTime', audio.currentTime);
+      });
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTop.style.opacity = '1';
+          backToTop.style.visibility = 'visible';
+        } else {
+          backToTop.style.opacity = '0';
+          backToTop.style.visibility = 'hidden';
+        }
+      });
+      
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

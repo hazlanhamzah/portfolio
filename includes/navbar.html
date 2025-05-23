@@ -1,0 +1,21 @@
+<nav style="background-color: rgba(0, 0, 0, 0.2); padding: 15px 0; margin-bottom: 30px;">
+  <a href="index.html" class="nav-link">Profile</a>
+  <a href="education.html" class="nav-link">Education</a>
+  <a href="interest.html" class="nav-link">Hobbies</a>
+  <a href="skills.html" class="nav-link">Skills</a>
+  <a href="experience.html" class="nav-link">Experience</a>
+  <a href="aboutme.html" class="nav-link">About Me</a>
+</nav>
+
+<script>
+  // Highlight current page link
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.style.color = '#4CA1AF';
+        link.style.fontWeight = 'bold';
+      }
+    });
+  });
+</script>
