@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/ico.png" type="image/x-icon">
+  <title>About Me | E-Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      transition: all 0.3s ease;
+    }
+    
+    nav a {
+      position: relative;
+      padding: 5px 0;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #4CA1AF;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .about-info:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
+    }
+    
+    .feedback-form:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
+    }
+    
+    .submit-btn:hover {
+      background: #3d8b99 !important;
+      transform: translateY(-2px) !important;
+    }
+    
+    .social-links a {
+      position: relative;
+    }
+    .social-links a::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(76, 161, 175, 0.2);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      z-index: -1;
+      transition: transform 0.3s;
+    }
+    .social-links a:hover::after {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    
+    #music-player {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    #music-player:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+    #music-control {
+      transition: all 0.2s !important;
+    }
+    #music-control:hover {
+      transform: rotate(15deg) scale(1.1) !important;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(76, 161, 175, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(76, 161, 175, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(76, 161, 175, 0); }
+    }
+    .pulse-effect {
+      animation: pulse 2s infinite;
+    }
+    
+    @media (max-width: 900px) {
+      .about-container {
+        flex-direction: column !important;
+      }
+      
+      .feedback-form {
+        max-width: 100% !important;
+      }
+
+      #music-player {
+        bottom: 10px !important;
+        right: 10px !important;
+        padding: 10px !important;
+        gap: 8px !important;
+      }
+      
+      #music-info {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body style="margin: 0; padding: 0; background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%); color: white; font-family: 'Segoe UI', sans-serif; text-align: center; min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="background: url('images/port.png') center/cover no-repeat; color: white; padding: 60px 20px; text-align: center; position: relative; background-blend-mode: overlay; background-color: rgba(44, 62, 80, 0.7); margin-bottom: 40px;">
+    <div style="background: rgba(0,0,0,0.4); padding: 20px; border-radius: 5px; max-width: 800px; margin: 0 auto;">
+        <h1 style="margin: 0; font-size: 3em;"><strong><i class="fas fa-address-card" style="margin-right: 15px;"></i>ABOUT ME</strong></h1>
+        <p style="margin: 15px 0 0; font-size: 1.3em; font-weight: 300;"><i class="fas fa-user-tie" style="margin-right: 10px;"></i><em>Hazlansyah bin Hamzah</em></p>
+    </div>
+  </header>
+
+  <nav style="background-color: rgba(0, 0, 0, 0.2); padding: 15px 0; margin-bottom: 30px;">
+    <a href="index.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-home" style="margin-right: 8px;"></i><strong>Profile</strong></a>
+    <a href="education.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i><strong>Education</strong></a>
+    <a href="interest.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-heart" style="margin-right: 8px;"></i><strong>Hobbies & Interest</strong></a>
+    <a href="skills.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-laptop-code" style="margin-right: 8px;"></i><strong>Skills</strong></a>
+    <a href="experience.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-briefcase" style="margin-right: 8px;"></i><strong>Experience</strong></a>
+    <a href="aboutme.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-address-card" style="margin-right: 8px;"></i><strong>About Me</strong></a>
+  </nav>
+
+  <div class="content" style="max-width: 1100px; margin: 0 auto; padding: 0 20px; flex: 1;">
+    <div class="about-container" style="display: flex; gap: 30px; margin: 30px 0;">
+      <div class="about-info" style="flex: 1; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 10px; backdrop-filter: blur(5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s; margin-bottom: 30px;">
+        <h2 style="font-size: 2.5em; margin-top: 0; color: #a8e6ff;"><i class="fas fa-user-circle" style="margin-right: 10px;"></i>Personal Details</h2>
+        <p style="font-size: 1.1em; line-height: 1.8;"><i class="fas fa-tag" style="color: #4CA1AF; margin-right: 10px;"></i>Title: <strong>E-Portfolio</strong></p>
+        <p style="font-size: 1.1em; line-height: 1.8;"><i class="fas fa-signature" style="color: #4CA1AF; margin-right: 10px;"></i>Name: <strong>Hazlansyah bin Hamzah</strong></p>
+        <p style="font-size: 1.1em; line-height: 1.8;"><i class="fas fa-id-card" style="color: #4CA1AF; margin-right: 10px;"></i>Student ID: <strong>2024377575</strong></p>
+        <p style="font-size: 1.1em; line-height: 1.8;"><i class="fas fa-users" style="color: #4CA1AF; margin-right: 10px;"></i>Group: <strong>NCIMBSF3A</strong></p>
+        <p style="font-size: 1.1em; line-height: 1.8;"><i class="fas fa-book" style="color: #4CA1AF; margin-right: 10px;"></i>Course Code: <strong>IMS458</strong></p>
+        <p style="font-size: 1.1em; line-height: 1.8;"><i class="fas fa-graduation-cap" style="color: #4CA1AF; margin-right: 10px;"></i>Course Name: <strong>Web Design and Development</strong></p>
+        <p style="font-size: 1.1em; line-height: 1.8;"><i class="fas fa-code" style="color: #4CA1AF; margin-right: 10px;"></i>Program Code: <strong>CDIM262</strong></p>
+        <p style="font-size: 1.1em; line-height: 1.8;"><i class="fas fa-university" style="color: #4CA1AF; margin-right: 10px;"></i>Faculty: <strong>Faculty of Information Management</strong></p>
+        <p style="font-size: 1.1em; line-height: 1.8;"><i class="fas fa-calendar-alt" style="color: #4CA1AF; margin-right: 10px;"></i>Submission Date: <strong>25 MAY 2020</strong></p>
+        <p style="font-size: 1.1em; line-height: 1.8;"><i class="fas fa-chalkboard-teacher" style="color: #4CA1AF; margin-right: 10px;"></i>Lecturer: <strong>DR FARRAH DIANA BINTI SAIFUL BAHRY</strong></p>
+      </div>
+
+      <div class="feedback-form" style="flex: 1; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 10px; backdrop-filter: blur(5px); max-width: 400px; align-self: flex-start; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s; margin-bottom: 30px;">
+        <h2 style="text-align: center; margin-top: 0; margin-bottom: 20px; color: #a8e6ff;"><i class="fas fa-comment-dots" style="margin-right: 10px;"></i>Send Me Feedback</h2>
+        <form action="mailto:hazlansyah.hsel@arnn.com" method="POST">
+          <input type="hidden" name="_subject" value="New E-Portfolio Feedback">
+          <input type="hidden" name="_autoresponse" value="Thank you for your feedback! I'll get back to you soon.">
+          <input type="hidden" name="_template" value="table">
+          
+          <div class="form-group" style="margin-bottom: 20px; text-align: left;">
+            <label for="name" style="display: block; margin-bottom: 8px; font-weight: bold;"><i class="fas fa-user" style="color: #4CA1AF; margin-right: 8px;"></i>Your Name</label>
+            <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 5px; background: rgba(0, 0, 0, 0.2); color: white; font-family: 'Segoe UI', sans-serif; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 20px; text-align: left;">
+            <label for="email" style="display: block; margin-bottom: 8px; font-weight: bold;"><i class="fas fa-envelope" style="color: #4CA1AF; margin-right: 8px;"></i>Your Email</label>
+            <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 5px; background: rgba(0, 0, 0, 0.2); color: white; font-family: 'Segoe UI', sans-serif; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 20px; text-align: left;">
+            <label for="message" style="display: block; margin-bottom: 8px; font-weight: bold;"><i class="fas fa-comment" style="color: #4CA1AF; margin-right: 8px;"></i>Feedback Message</label>
+            <textarea id="message" name="message" required style="width: 100%; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 5px; background: rgba(0, 0, 0, 0.2); color: white; font-family: 'Segoe UI', sans-serif; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); min-height: 120px; resize: vertical;"></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn" style="background: #4CA1AF; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 1em; transition: 0.3s; width: 100%;"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Send Feedback</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background: rgba(0, 0, 0, 0.25); padding: 25px 0; margin-top: 50px; backdrop-filter: blur(5px); border-top: 1px solid rgba(76, 161, 175, 0.3);">
+    <div class="social-links" style="margin-bottom: 15px;">
+      <a href="https://www.instagram.com/h._.syah/" target="_blank" style="margin: 0 10px; display: inline-block;">
+        <i class="fab fa-instagram fa-2x" style="color: white;"></i>
+      </a>
+      <a href="mailto:ariff.1010@gmail.com" target="_blank" style="margin: 0 10px; display: inline-block;">
+        <i class="fas fa-envelope fa-2x" style="color: white;"></i>
+      </a>
+      <a href="#" style="margin: 0 10px; display: inline-block;">
+        <i class="fab fa-linkedin fa-2x" style="color: white;"></i>
+      </a>
+      <a href="#" style="margin: 0 10px; display: inline-block;">
+        <i class="fab fa-github fa-2x" style="color: white;"></i>
+      </a>
+    </div>
+    
+    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="far fa-copyright" style="margin-right: 5px;"></i><strong>E-Portfolio ©2025 Copyright.</strong> <em>All Rights Reserved</em></p>
+    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="fab fa-html5" style="margin-right: 5px;"></i><strong>Powered by HTML</strong> | <i class="fab fa-chrome" style="margin-right: 5px;"></i><em>Best viewed in Google Chrome</em></p>
+    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="fas fa-graduation-cap" style="margin-right: 5px;"></i><em>For educational purposes</em> <strong>(IMS458)</strong></p>
+    
+    <p class="copyright" style="font-size: 0.85em; color: rgba(255,255,255,0.6); margin-top: 15px;"><i class="fas fa-user" style="margin-right: 5px;"></i><strong>Hazlansyah Bin Hamzah</strong></p>
+  </footer>
+
+  <div id="music-player" class="pulse-effect" style="position: fixed; bottom: 20px; right: 20px; background: rgba(0, 0, 0, 0.7); padding: 15px; border-radius: 50px; display: flex; align-items: center; gap: 10px; z-index: 1000; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1);">
+    <button id="music-control" style="background: #4CA1AF; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px;"><i class="fas fa-music"></i></button>
+    <span id="music-info" style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;"></span>
+    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.7" style="width: 80px; cursor: pointer;">
+    <audio id="bg-music" loop>
+      <source src="includes/music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <a href="#" id="back-to-top" style="position: fixed; bottom: 80px; right: 20px; background: rgba(76, 161, 175, 0.8); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; opacity: 0; visibility: hidden; z-index: 999; transition: all 0.3s;">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('bg-music');
+      const playBtn = document.getElementById('music-control');
+      const volumeControl = document.getElementById('volume-control');
+      const musicInfo = document.getElementById('music-info');
+      const backToTop = document.getElementById('back-to-top');
+      
+      audio.volume = 0.7;
+      const savedPlayState = localStorage.getItem('musicPlaying') === 'true';
+      const savedVolume = localStorage.getItem('musicVolume');
+      const savedTime = localStorage.getItem('musicTime');
+    
+      if (savedVolume) {
+        audio.volume = parseFloat(savedVolume);
+        volumeControl.value = savedVolume;
+      }
+      
+      if (savedTime) {
+        audio.currentTime = parseFloat(savedTime);
+      }
+      
+      function attemptAutoPlay() {
+        if (savedPlayState) {
+          const playPromise = audio.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            })
+            .catch(error => {
+              playBtn.innerHTML = '<i class="fas fa-play"></i>';
+              musicInfo.title = "Click play to start music (browser restriction)";
+            });
+          }
+        }
+      }
+      
+      attemptAutoPlay();
+      
+      let interactionOccurred = false;
+      const handleFirstInteraction = () => {
+        if (!interactionOccurred) {
+          interactionOccurred = true;
+          if (savedPlayState && audio.paused) {
+            audio.play().then(() => {
+              playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            });
+          }
+          document.removeEventListener('click', handleFirstInteraction);
+          document.removeEventListener('keydown', handleFirstInteraction);
+          document.removeEventListener('touchstart', handleFirstInteraction);
+        }
+      };
+      
+      document.addEventListener('click', handleFirstInteraction);
+      document.addEventListener('keydown', handleFirstInteraction);
+      document.addEventListener('touchstart', handleFirstInteraction);
+      
+      playBtn.addEventListener('click', function() {
+        if (audio.paused) {
+          audio.play().then(() => {
+            this.innerHTML = '<i class="fas fa-pause"></i>';
+            localStorage.setItem('musicPlaying', 'true');
+          });
+        } else {
+          audio.pause();
+          this.innerHTML = '<i class="fas fa-play"></i>';
+          localStorage.setItem('musicPlaying', 'false');
+        }
+      });
+      
+      volumeControl.addEventListener('input', function() {
+        audio.volume = this.value;
+        localStorage.setItem('musicVolume', this.value);
+      });
+      
+      setInterval(() => {
+        if (!audio.paused) {
+          localStorage.setItem('musicTime', audio.currentTime);
+        }
+      }, 1000);
+      
+      window.addEventListener('beforeunload', function() {
+        localStorage.setItem('musicTime', audio.currentTime);
+      });
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTop.style.opacity = '1';
+          backToTop.style.visibility = 'visible';
+        } else {
+          backToTop.style.opacity = '0';
+          backToTop.style.visibility = 'hidden';
+        }
+      });
+      
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
