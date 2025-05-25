@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Portfolio</title>
   <link rel="icon" href="images/ico.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
   <style>
     * {
       transition: all 0.3s ease;
@@ -85,12 +85,6 @@
     #music-player:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-    }
-    #music-control {
-      transition: all 0.2s !important;
-    }
-    #music-control:hover {
-      transform: rotate(15deg) scale(1.1) !important;
     }
     
     html {
@@ -208,12 +202,9 @@
   </footer>
 
   <div id="music-player" class="pulse-effect" style="position: fixed; bottom: 20px; right: 20px; background: rgba(0, 0, 0, 0.7); padding: 15px; border-radius: 50px; display: flex; align-items: center; gap: 10px; z-index: 1000; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1);">
-    <audio id="bg-music" loop autoplay controls style="display: none;">
-      <source src="includes/music.mp3" type="audio/mpeg">
-    </audio>
-    <button onclick="document.getElementById('bg-music').play()" id="music-control" style="background: #4CA1AF; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px;"><i class="fas fa-play"></i></button>
-    <button onclick="document.getElementById('bg-music').pause()" id="music-control" style="background: #4CA1AF; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px;"><i class="fas fa-pause"></i></button>
-    <input type="range" min="0" max="1" step="0.1" value="0.7" oninput="document.getElementById('bg-music').volume = this.value" style="width: 80px; cursor: pointer;">
+    <audio controls autoplay style="width: 200px; height: 40px;">
+  <source src="includes/music.mp3" type="audio/mpeg">
+</audio>
   </div>
 </body>
 </html>
