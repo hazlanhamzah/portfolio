@@ -5,15 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="images/ico.png" type="image/x-icon">
   <title>Skills | Hazlansyah's Portfolio</title>
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Enhanced transitions and animations */
-    * {
-      transition: all 0.3s ease;
-    }
-    
-    /* Navigation enhancements */
+    /* Navigation hover effect */
     nav a {
       position: relative;
       padding: 5px 0;
@@ -32,78 +26,24 @@
       width: 100%;
     }
     
-    /* Skill card enhancements */
-    .skill-card {
-      position: relative;
-      overflow: hidden;
-      transform: translateY(0);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+    /* Skill card hover effect */
     .skill-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
     }
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(76,161,175,0.1) 0%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-    .skill-card:hover::before {
-      opacity: 1;
+    
+    /* Social media hover effect */
+    .social-links a:hover {
+      transform: translateY(-3px) scale(1.1);
+      background: rgba(76, 161, 175, 0.4) !important;
     }
     
-    /* Progress bar animations */
-    .progress-container {
-      position: relative;
-      height: 10px;
-      background: rgba(44,62,80,0.5);
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 100%;
-      background: linear-gradient(90deg, #4CA1AF, #3d8b99);
-      border-radius: 5px;
-      width: 0;
-      transition: width 1.5s ease-out;
-    }
-    
-    /* Skill list animations */
-    .skill-list li {
-      position: relative;
-      padding-left: 30px;
-      margin-bottom: 15px;
-    }
-    .skill-list li::before {
-      content: '▹';
-      position: absolute;
-      left: 0;
-      color: #4CA1AF;
-      transition: all 0.3s;
-    }
+    /* Skill list hover effect */
     .skill-list li:hover::before {
       transform: translateX(5px);
       color: #3d8b99;
     }
-    
-    /* Social media icons */
-    .social-links a {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: rgba(76, 161, 175, 0.2);
-      transition: all 0.3s;
-    }
+
     .social-links a:hover {
       transform: translateY(-3px) scale(1.1);
       background: rgba(76, 161, 175, 0.4);
@@ -111,241 +51,107 @@
     .social-links i {
       font-size: 1.4em;
     }
-    
-    /* Music player enhancements */
-    #music-player {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    #music-player:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-    }
-    #music-control {
-      transition: all 0.2s !important;
-    }
-    #music-control:hover {
-      transform: rotate(15deg) scale(1.1) !important;
-    }
-    
-    /* Back to top button */
-    #back-to-top {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background: rgba(76, 161, 175, 0.8);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      opacity: 0;
-      visibility: hidden;
-      z-index: 999;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    #back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-    #back-to-top:hover {
-      background: rgba(76, 161, 175, 1);
-      transform: translateY(-3px);
-    }
-    
-    /* Section header animation */
-    .section-header {
-      position: relative;
-      display: inline-block;
-    }
-    .section-header::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 3px;
-      bottom: -5px;
-      left: 0;
-      background: #4CA1AF;
-      transition: width 0.5s;
-    }
-    .skill-card:hover .section-header::after {
-      width: 100%;
-    }
-    
-    /* New styles for side-by-side layout */
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px;
-      margin: 40px 0;
-    }
-    
-    .language-card, .skills-card {
-      flex: 1;
-      min-width: 300px;
-      padding: 30px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    
-    /* Improved text colors */
-    .skill-title {
-      color: #a8e6ff;
-      margin-bottom: 25px;
-      font-size: 28px;
-      text-align: center;
-    }
-    
-    .language-name {
-      color: #ffffff;
-      font-size: 18px;
-      text-align: left;
-    }
-    
-    .language-percent {
-      color: #4CA1AF;
-      font-weight: bold;
-    }
-    
-    .language-desc {
-      color: #b8d8e6;
-      font-size: 14px;
-      margin-top: 5px;
-      text-align: left;
-    }
-    
-    .skill-item {
-      font-size: 18px;
-      color: #e0f7ff;
-      line-height: 1.5;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      #music-player {
-        bottom: 10px;
-        right: 10px;
-        padding: 10px;
-        gap: 8px;
-      }
-      
-      #music-info {
-        display: none;
-      }
-      
-      .language-card, .skills-card {
-        width: 100% !important;
-        margin-bottom: 20px;
-      }
-      
-      .skills-container {
-        flex-direction: column;
-      }
-    }
   </style>
 </head>
-<body id="top" style="margin: 0; padding: 0; background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%); color: white; font-family: 'Segoe UI', sans-serif; text-align: center; min-height: 100vh; display: flex; flex-direction: column;">
-  <header style="background: url('images/port.png') center/cover no-repeat; color: white; padding: 60px 20px; text-align: center; position: relative; background-blend-mode: overlay; background-color: rgba(44, 62, 80, 0.7); margin-bottom: 40px;">
-    <div style="background: rgba(0,0,0,0.4); padding: 20px; border-radius: 5px; max-width: 800px; margin: 0 auto;">
-        <h1 style="margin: 0; font-size: 3em;"><i class="fas fa-code" style="margin-right: 15px;"></i><strong>SKILLS</strong></h1>
-        <p style="margin: 15px 0 0; font-size: 1.3em; font-weight: 300;"><i class="fas fa-user" style="margin-right: 10px;"></i><em>Hazlansyah bin Hamzah</em></p>
+<body style="margin:0;padding:0;background:linear-gradient(135deg,#2C3E50 0%,#4CA1AF 100%);color:white;font-family:'Segoe UI',sans-serif;min-height:100vh;display:flex;flex-direction:column;">
+
+  <header style="background:url('images/port.png') center/cover no-repeat;color:white;padding:60px 20px;text-align:center;position:relative;background-blend-mode:overlay;background-color:rgba(44,62,80,0.7);margin-bottom:40px;">
+    <div style="background:rgba(0,0,0,0.4);padding:20px;border-radius:5px;max-width:800px;margin:0 auto;">
+      <h1 style="margin:0;font-size:3em;"><i class="fas fa-code" style="margin-right:15px;"></i><strong>SKILLS</strong></h1>
+      <p style="margin:15px 0 0;font-size:1.3em;"><i class="fas fa-user" style="margin-right:10px;"></i><em>Hazlansyah bin Hamzah</em></p>
     </div>
   </header>
 
-  <nav style="background-color: rgba(0, 0, 0, 0.2); padding: 15px 0; margin-bottom: 30px;">
+  <nav style="background-color:rgba(0,0,0,0.2);padding:15px 0;margin-bottom:30px;text-align:center;">
     <a href="index.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-home" style="margin-right: 8px;"></i><strong>Profile</strong></a>
     <a href="education.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i><strong>Education</strong></a>
-    <a href="interest.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-heart" style="margin-right: 8px;"></i><strong>Hobbies & Interest</strong></a>
-    <a href="skills.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-laptop-code" style="margin-right: 8px;"></i><strong>Skills</strong></a>
     <a href="experience.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-briefcase" style="margin-right: 8px;"></i><strong>Experience</strong></a>
+    <a href="skills.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-laptop-code" style="margin-right: 8px;"></i><strong>Skills</strong></a>
+    <a href="interest.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-heart" style="margin-right: 8px;"></i><strong>Hobbies & Interest</strong></a>
     <a href="aboutme.html" style="color: white; text-decoration: none; margin: 0 15px; font-size: 1.1em;"><i class="fas fa-address-card" style="margin-right: 8px;"></i><strong>About Me</strong></a>
   </nav>
 
-  <div class="content" style="max-width: 1000px; margin: 0 auto; padding: 0 20px; flex: 1; margin-bottom: 50px;">
-    <div class="skills-container">
-      <div class="language-card skill-card">
-        <h1 class="section-header skill-title">
-          <i class="fas fa-language" style="margin-right: 10px;"></i>LANGUAGE PROFICIENCY
+<main>
+  <div style="max-width:1000px;margin:0 auto;padding:0 20px;flex:1;margin-bottom:50px;text-align:center;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:30px;margin:40px 0;">
+      <div class="skill-card" style="flex:1;min-width:300px;padding:30px;background:rgba(255,255,255,0.05);border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1);text-align:left;transition:transform 0.3s, box-shadow 0.3s;">
+        <h1 style="color:#a8e6ff;margin-bottom:25px;font-size:28px;text-align:center;">
+          <i class="fas fa-language" style="margin-right:10px;"></i>LANGUAGE PROFICIENCY
         </h1>
         
-        <div style="margin-bottom: 30px;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-            <h3 class="language-name">
-              <i class="fas fa-flag" style="margin-right: 8px;"></i>Bahasa Melayu
+        <div style="margin-bottom:30px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+            <h3 style="color:#ffffff;font-size:18px;">
+              <i class="fas fa-flag" style="margin-right:8px;"></i>Bahasa Melayu
             </h3>
-            <span class="language-percent">100%</span>
+            <span style="color:#4CA1AF;font-weight:bold;">100%</span>
           </div>
-          <div class="progress-container">
-            <div class="progress-bar" data-width="100"></div>
+          <div style="height:10px;background:rgba(44,62,80,0.5);border-radius:5px;overflow:hidden;">
+            <div style="height:100%;background:linear-gradient(90deg,#4CA1AF,#3d8b99);border-radius:5px;width:100%;"></div>
           </div>
-          <p class="language-desc">Native proficiency</p>
+          <p style="color:#b8d8e6;font-size:14px;margin-top:5px;">Native proficiency</p>
         </div>
         
-        <div style="margin-bottom: 30px;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-            <h3 class="language-name">
-              <i class="fas fa-globe" style="margin-right: 8px;"></i>English
+        <div style="margin-bottom:30px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+            <h3 style="color:#ffffff;font-size:18px;">
+              <i class="fas fa-globe" style="margin-right:8px;"></i>English
             </h3>
-            <span class="language-percent">80%</span>
+            <span style="color:#4CA1AF;font-weight:bold;">80%</span>
           </div>
-          <div class="progress-container">
-            <div class="progress-bar" data-width="80"></div>
+          <div style="height:10px;background:rgba(44,62,80,0.5);border-radius:5px;overflow:hidden;">
+            <div style="height:100%;background:linear-gradient(90deg,#4CA1AF,#3d8b99);border-radius:5px;width:80%;"></div>
           </div>
-          <p class="language-desc">Professional working proficiency</p>
+          <p style="color:#b8d8e6;font-size:14px;margin-top:5px;">Professional working proficiency</p>
         </div>
         
         <div>
-          <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-            <h3 class="language-name">
-              <i class="fas fa-flag" style="margin-right: 8px;"></i>Japanese
+          <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+            <h3 style="color:#ffffff;font-size:18px;">
+              <i class="fas fa-flag" style="margin-right:8px;"></i>Japanese
             </h3>
-            <span class="language-percent">20%</span>
+            <span style="color:#4CA1AF;font-weight:bold;">20%</span>
           </div>
-          <div class="progress-container">
-            <div class="progress-bar" data-width="20"></div>
+          <div style="height:10px;background:rgba(44,62,80,0.5);border-radius:5px;overflow:hidden;">
+            <div style="height:100%;background:linear-gradient(90deg,#4CA1AF,#3d8b99);border-radius:5px;width:20%;"></div>
           </div>
-          <p class="language-desc">Limited words proficiency</p>
+          <p style="color:#b8d8e6;font-size:14px;margin-top:5px;">Limited words proficiency</p>
         </div>
       </div>
       
-      <div class="skills-card skill-card">
-        <h1 class="section-header skill-title">
-          <i class="fas fa-star" style="margin-right: 10px;"></i>KEY SKILLS
+      <div class="skill-card" style="flex:1;min-width:300px;padding:30px;background:rgba(255,255,255,0.05);border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1);text-align:left;transition:transform 0.3s, box-shadow 0.3s;">
+        <h1 style="color:#a8e6ff;margin-bottom:25px;font-size:28px;text-align:center;">
+          <i class="fas fa-star" style="margin-right:10px;"></i>KEY SKILLS
         </h1>
         
-        <ul class="skill-list" style="padding-left: 0; list-style-type: none; text-align: left;">
-          <li>
-            <p class="skill-item">
-              <i class="fas fa-users" style="color: #4CA1AF; margin-right: 10px;"></i>
+        <ul class="skill-list" style="padding-left:0;list-style-type:none;">
+          <li style="margin-bottom:15px;position:relative;padding-left:30px;">
+            <p style="font-size:18px;color:#e0f7ff;line-height:1.5;">
+              <i class="fas fa-users" style="color:#4CA1AF;margin-right:10px;"></i>
               <strong>Team Collaboration:</strong> Flexible team player with effective collaboration skills
             </p>
           </li>
-          <li>
-            <p class="skill-item">
-              <i class="fas fa-brain" style="color: #4CA1AF; margin-right: 10px;"></i>
+          <li style="margin-bottom:15px;position:relative;padding-left:30px;">
+            <p style="font-size:18px;color:#e0f7ff;line-height:1.5;">
+              <i class="fas fa-brain" style="color:#4CA1AF;margin-right:10px;"></i>
               <strong>Continuous Learning:</strong> Strong knowledge acquisition ability
             </p>
           </li>
-          <li>
-            <p class="skill-item">
-              <i class="fas fa-random" style="color: #4CA1AF; margin-right: 10px;"></i>
+          <li style="margin-bottom:15px;position:relative;padding-left:30px;">
+            <p style="font-size:18px;color:#e0f7ff;line-height:1.5;">
+              <i class="fas fa-random" style="color:#4CA1AF;margin-right:10px;"></i>
               <strong>Adaptability:</strong> Thrives in dynamic environments and new challenges
             </p>
           </li>
-          <li>
-            <p class="skill-item">
-              <i class="fas fa-user-tie" style="color: #4CA1AF; margin-right: 10px;"></i>
+          <li style="margin-bottom:15px;position:relative;padding-left:30px;">
+            <p style="font-size:18px;color:#e0f7ff;line-height:1.5;">
+              <i class="fas fa-user-tie" style="color:#4CA1AF;margin-right:10px;"></i>
               <strong>Professionalism:</strong> Strong work ethic and interpersonal skills
             </p>
           </li>
-          <li>
-            <p class="skill-item">
-              <i class="fas fa-lightbulb" style="color: #4CA1AF; margin-right: 10px;"></i>
+          <li style="margin-bottom:15px;position:relative;padding-left:30px;">
+            <p style="font-size:18px;color:#e0f7ff;line-height:1.5;">
+              <i class="fas fa-lightbulb" style="color:#4CA1AF;margin-right:10px;"></i>
               <strong>Problem Solving:</strong> Analytical approach to technical challenges
             </p>
           </li>
@@ -353,178 +159,30 @@
       </div>
     </div>
   </div>
+</main>
 
-  <footer style="background: rgba(0, 0, 0, 0.25); padding: 25px 0; margin-top: 50px; backdrop-filter: blur(5px); border-top: 1px solid rgba(76, 161, 175, 0.3);">
-    <div class="social-links" style="margin-bottom: 15px;">
-      <a href="https://www.instagram.com/h._.syah/" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+  <footer style="background:rgba(0,0,0,0.25);padding:25px 0;margin-top:50px;border-top:1px solid rgba(76,161,175,0.3);text-align:center;">
+    <div class="social-links" style="margin-bottom:15px;">
+      <a href="https://www.instagram.com/h._.syah/" target="_blank" style="margin:0 10px;color:white;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:45px;height:45px;border-radius:50%;background:rgba(76,161,175,0.2);transition:all 0.3s;">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hazlanhamzah4@gmail.com" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hazlanhamzah4@gmail.com" target="_blank" style="margin:0 10px;color:white;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:45px;height:45px;border-radius:50%;background:rgba(76,161,175,0.2);transition:all 0.3s;">
         <i class="fas fa-envelope"></i>
       </a>
-      <a href="#" style="margin: 0 10px; color: white; text-decoration: none;">
+      <a href="#" style="margin:0 10px;color:white;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:45px;height:45px;border-radius:50%;background:rgba(76,161,175,0.2);transition:all 0.3s;">
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="#" style="margin: 0 10px; color: white; text-decoration: none;">
+     <a href="https://github.com/hazlanhamzah" target="_blank" style="margin:0 10px;color:white;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:45px;height:45px;border-radius:50%;background:rgba(76,161,175,0.2);transition:all 0.3s;">
         <i class="fab fa-github"></i>
       </a>
     </div>
     
-    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="far fa-copyright" style="margin-right: 5px;"></i><strong>E-Portfolio ©2025 Copyright.</strong> <em>All Rights Reserved</em></p>
-    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="fab fa-html5" style="margin-right: 5px;"></i><strong>Powered by HTML</strong> | <i class="fab fa-chrome" style="margin-right: 5px;"></i><em>Best viewed in Google Chrome</em></p>
-    <p class="footer-text" style="font-size: 0.9em; margin: 5px 0; color: rgba(255,255,255,0.8);"><i class="fas fa-graduation-cap" style="margin-right: 5px;"></i><em>For educational purposes</em> <strong>(IMS458)</strong></p>
+    <p style="font-size:0.9em;margin:5px 0;color:rgba(255,255,255,0.8);"><i class="far fa-copyright" style="margin-right:5px;"></i><strong>E-Portfolio ©2025 Copyright.</strong> <em>All Rights Reserved</em></p>
+    <p style="font-size:0.9em;margin:5px 0;color:rgba(255,255,255,0.8);"><i class="fab fa-html5" style="margin-right:5px;"></i><strong>Powered by HTML</strong> | <i class="fab fa-chrome" style="margin-right:5px;"></i><em>Best viewed in Google Chrome</em></p>
+    <p style="font-size:0.9em;margin:5px 0;color:rgba(255,255,255,0.8);"><i class="fas fa-graduation-cap" style="margin-right:5px;"></i><em>For educational purposes</em> <strong>(IMS458)</strong></p>
     
-    <p class="copyright" style="font-size: 0.85em; color: rgba(255,255,255,0.6); margin-top: 15px;"><i class="fas fa-user" style="margin-right: 5px;"></i><strong>Hazlansyah Bin Hamzah</strong></p>
+    <p style="font-size:0.85em;color:rgba(255,255,255,0.6);margin-top:15px;"><i class="fas fa-user" style="margin-right:5px;"></i><strong>Hazlansyah Bin Hamzah</strong></p>
   </footer>
 
-  <div id="music-player" style="position: fixed; bottom: 20px; right: 20px; background: rgba(0, 0, 0, 0.7); padding: 15px; border-radius: 50px; display: flex; align-items: center; gap: 10px; z-index: 1000; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1);">
-    <button id="music-control" style="background: #4CA1AF; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px;"><i class="fas fa-music"></i></button>
-    <span id="music-info" style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;"></span>
-    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.7" style="width: 80px; cursor: pointer;">
-    <audio id="bg-music" loop>
-      <source src="includes/music.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-
-  <!-- Back to top button -->
-  <a href="#top" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const audio = document.getElementById('bg-music');
-      const playBtn = document.getElementById('music-control');
-      const volumeControl = document.getElementById('volume-control');
-      const musicInfo = document.getElementById('music-info');
-      const backToTop = document.getElementById('back-to-top');
-      
-      // Music player functionality
-      audio.volume = 0.7;
-      const savedPlayState = localStorage.getItem('musicPlaying') === 'true';
-      const savedVolume = localStorage.getItem('musicVolume');
-      const savedTime = localStorage.getItem('musicTime');
-    
-      if (savedVolume) {
-        audio.volume = parseFloat(savedVolume);
-        volumeControl.value = savedVolume;
-      }
-      
-      if (savedTime) {
-        audio.currentTime = parseFloat(savedTime);
-      }
-      
-      function attemptAutoPlay() {
-        if (savedPlayState) {
-          const playPromise = audio.play();
-          
-          if (playPromise !== undefined) {
-            playPromise.then(() => {
-              playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            })
-            .catch(error => {
-              playBtn.innerHTML = '<i class="fas fa-play"></i>';
-              musicInfo.title = "Click play to start music (browser restriction)";
-            });
-          }
-        }
-      }
-      
-      attemptAutoPlay();
-      
-      let interactionOccurred = false;
-      const handleFirstInteraction = () => {
-        if (!interactionOccurred) {
-          interactionOccurred = true;
-          if (savedPlayState && audio.paused) {
-            audio.play().then(() => {
-              playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            });
-          }
-          document.removeEventListener('click', handleFirstInteraction);
-          document.removeEventListener('keydown', handleFirstInteraction);
-          document.removeEventListener('touchstart', handleFirstInteraction);
-        }
-      };
-      
-      document.addEventListener('click', handleFirstInteraction);
-      document.addEventListener('keydown', handleFirstInteraction);
-      document.addEventListener('touchstart', handleFirstInteraction);
-      
-      playBtn.addEventListener('click', function() {
-        if (audio.paused) {
-          audio.play().then(() => {
-            this.innerHTML = '<i class="fas fa-pause"></i>';
-            localStorage.setItem('musicPlaying', 'true');
-          });
-        } else {
-          audio.pause();
-          this.innerHTML = '<i class="fas fa-play"></i>';
-          localStorage.setItem('musicPlaying', 'false');
-        }
-      });
-      
-      volumeControl.addEventListener('input', function() {
-        audio.volume = this.value;
-        localStorage.setItem('musicVolume', this.value);
-      });
-      
-      setInterval(() => {
-        if (!audio.paused) {
-          localStorage.setItem('musicTime', audio.currentTime);
-        }
-      }, 1000);
-      
-      window.addEventListener('beforeunload', function() {
-        localStorage.setItem('musicTime', audio.currentTime);
-      });
-      
-      // Back to top button
-      window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-          backToTop.classList.add('visible');
-        } else {
-          backToTop.classList.remove('visible');
-        }
-      });
-      
-      // Animate progress bars on scroll
-      const progressBars = document.querySelectorAll('.progress-bar');
-      
-      function animateProgressBars() {
-        progressBars.forEach(bar => {
-          const width = bar.getAttribute('data-width');
-          if (isElementInViewport(bar)) {
-            bar.style.width = width + '%';
-          }
-        });
-      }
-      
-      function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-      }
-      
-      // Initial check
-      animateProgressBars();
-      
-      // Check on scroll
-      window.addEventListener('scroll', animateProgressBars);
-      
-      // Smooth scroll for all links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
-        });
-      });
-    });
-  </script>
 </body>
 </html>
